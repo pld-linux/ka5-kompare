@@ -1,14 +1,15 @@
-%define		kdeappsver	18.12.1
+%define		kdeappsver	19.04.1
+%define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kompare
 Summary:	kompare
 Name:		ka5-%{kaname}
-Version:	18.12.1
+Version:	19.04.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	03b9c26dcd0f9135af29df770aa7e705
+# Source0-md5:	6b9b8b579c1e6bc09717eff3694f8362
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -17,16 +18,16 @@ BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-libkomparediff2-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= 5.35.0
-BuildRequires:	kf5-kcodecs-devel >= 5.28.0
-BuildRequires:	kf5-kconfig-devel >= 5.28.0
-BuildRequires:	kf5-kcoreaddons-devel >= 5.28.0
-BuildRequires:	kf5-kdoctools-devel >= 5.28.0
-BuildRequires:	kf5-kiconthemes-devel >= 5.28.0
-BuildRequires:	kf5-kjobwidgets-devel >= 5.28.0
-BuildRequires:	kf5-kparts-devel >= 5.53.0
-BuildRequires:	kf5-ktexteditor-devel >= 5.28.0
-BuildRequires:	kf5-kwidgetsaddons-devel >= 5.28.0
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcodecs-devel >= %{kframever}
+BuildRequires:	kf5-kconfig-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf5-kjobwidgets-devel >= %{kframever}
+BuildRequires:	kf5-kparts-devel >= %{kframever}
+BuildRequires:	kf5-ktexteditor-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	ninja
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
@@ -50,6 +51,7 @@ install -d build
 cd build
 %cmake \
 	-G Ninja \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
 %ninja_build
@@ -71,8 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkomparedialogpages.so.5
 %attr(755,root,root) %{_libdir}/libkompareinterface.so
 %attr(755,root,root) %{_libdir}/libkompareinterface.so.5
-%attr(755,root,root) %{_libdir}/qt5/plugins/komparenavtreepart.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/komparepart.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/parts/komparenavtreepart.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/parts/komparepart.so
 %{_desktopdir}/org.kde.kompare.desktop
 %{_iconsdir}/hicolor/128x128/apps/kompare.png
 %{_iconsdir}/hicolor/16x16/apps/kompare.png
@@ -85,6 +87,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/komparepart.desktop
 %{_datadir}/kservicetypes5/komparenavigationpart.desktop
 %{_datadir}/kservicetypes5/kompareviewpart.desktop
-%{_datadir}/kxmlgui5/kompare
-%{_datadir}/kxmlgui5/komparepart
 %{_datadir}/metainfo/org.kde.kompare.appdata.xml
