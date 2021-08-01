@@ -43,6 +43,13 @@ differences on files or the contents of folders, and it supports a
 variety of diff formats and provide many options to customize the
 information level displayed.
 
+%description -l pl.UTF-8
+Kompare jest programem GUI, który pokazuje różnice między plikami
+kodu źródłowego, które mogą być złączone. Może być użyty do
+porównania plików, lub zawartości folderów. Wspiera różne formaty
+diffa i dostarcza wielu opcji do zmieniania zakresu wyświetlanej
+informacji.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
