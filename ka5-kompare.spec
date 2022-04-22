@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	21.12.3
+%define		kdeappsver	22.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kompare
 Summary:	kompare
 Name:		ka5-%{kaname}
-Version:	21.12.3
+Version:	22.04.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	fff14242d04bb16bef9818a19d3ba4c3
+# Source0-md5:	96a3de2d8ec049d0b61dce6863cfe8d0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -49,9 +49,9 @@ information level displayed.
 %description -l pl.UTF-8
 Kompare jest programem GUI, który pokazuje różnice między plikami
 kodu źródłowego, które mogą być złączone. Może być użyty do
-porównania plików, lub zawartości folderów. Wspiera różne formaty
-diffa i dostarcza wielu opcji do zmieniania zakresu wyświetlanej
-informacji.
+porównania plików, lub zawartości folderów. Wspiera różne
+formaty diffa i dostarcza wielu opcji do zmieniania zakresu
+wyświetlanej informacji.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -98,10 +98,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/32x32/apps/kompare.png
 %{_iconsdir}/hicolor/48x48/apps/kompare.png
 %{_iconsdir}/hicolor/scalable/apps/kompare.svgz
-%{_datadir}/kservices5/ServiceMenus/kompare.desktop
 %{_datadir}/kservices5/komparenavtreepart.desktop
 %{_datadir}/kservices5/komparepart.desktop
 %{_datadir}/kservicetypes5/komparenavigationpart.desktop
 %{_datadir}/kservicetypes5/kompareviewpart.desktop
 %{_datadir}/metainfo/org.kde.kompare.appdata.xml
 %{_datadir}/qlogging-categories5/kompare.categories
+%{_datadir}/kio/servicemenus/kompare.desktop
