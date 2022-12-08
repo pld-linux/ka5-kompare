@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.08.3
+%define		kdeappsver	22.12.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kompare
 Summary:	kompare
 Name:		ka5-%{kaname}
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Applications
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	25c183843a92d8e433266b2e8e89219c
+# Source0-md5:	28560bb206fe29b4e1eaca11ce9dba6a
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -98,10 +98,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/32x32/apps/kompare.png
 %{_iconsdir}/hicolor/48x48/apps/kompare.png
 %{_iconsdir}/hicolor/scalable/apps/kompare.svgz
-%{_datadir}/kservices5/komparenavtreepart.desktop
-%{_datadir}/kservices5/komparepart.desktop
-%{_datadir}/kservicetypes5/komparenavigationpart.desktop
-%{_datadir}/kservicetypes5/kompareviewpart.desktop
 %{_datadir}/metainfo/org.kde.kompare.appdata.xml
 %{_datadir}/qlogging-categories5/kompare.categories
 %{_datadir}/kio/servicemenus/kompare.desktop
